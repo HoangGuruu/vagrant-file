@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
     
   ### Vmext VM ###
     config.vm.define "vmext" do |vmext|
-        vmext.vm.box = "ubuntu/focal64"
+        vmext.vm.box = "chenhan/ubuntu-desktop-20.04"
       vmext.vm.hostname = "vmext"
     vmext.vm.network "private_network", ip: "66.152.182.11"
     vmext.vm.network "forwarded_port", guest: 10443, host: 10443
@@ -41,7 +41,9 @@ Vagrant.configure("2") do |config|
     vmext.vm.network "forwarded_port", guest: 12443, host: 12443
     vmext.vm.provider "virtualbox" do |vb|
        vb.gui = true
-       vb.memory = "800"
+       vb.memory = "2048"
+       vb.cpus = "2"
+       vram = "128"
      end
   end
     
